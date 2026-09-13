@@ -68,6 +68,7 @@ _ensure_dirs() {
     fi
 
     cp "$PROJECT_DIR/dashboard/index.html" "$AI_ROOT/dashboard/index.html"
+    cp "$PROJECT_DIR/dashboard/default.conf" "$AI_ROOT/dashboard/default.conf"
 }
 
 cmd_build() {
@@ -165,6 +166,7 @@ cmd_status() {
     _info "Kavach portal: $PORTAL_URL"
     _info "AdGuard UI: $ADGUARD_UI_URL"
     _info "DoH origin: $DOH_ORIGIN_URL"
+    _info "Layer-1 via portal paths: /apps/{adguard,traccar,fmd,mdm,approver}"
 }
 
 cmd_health() {

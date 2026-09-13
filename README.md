@@ -20,7 +20,8 @@ kavach/
 ├── README.md
 ├── ANDROID-DNS.md
 ├── dashboard/
-│   └── index.html
+│   ├── index.html
+│   └── default.conf
 ├── approver/
 │   ├── Dockerfile
 │   ├── app.py
@@ -68,6 +69,7 @@ The control script creates these under `/ai/kavach/`:
 - Design decisions are tracked in [docs/ADR-019.md](docs/ADR-019.md)
 - Native Android **Private DNS** means **DoT on `:853`**, not DoH. The default pod intentionally avoids privileged DNS ports so it can start rootless on shambala.
 - The Kavach portal is served on `http://localhost:24284` and is intended to be published as `https://kavach.thepkb.in` through the shambala tunnel.
+- Layer-1 apps are proxied under the dashboard host as `/apps/{adguard,traccar,fmd,mdm,approver}` so one Cloudflare Access session on `kavach.thepkb.in` is reused across the whole portal.
 - The default DNS path is a managed Android DNS/VPN app pinned to `https://dns-kavach.thepkb.in/dns-query`, with AdGuard's HTTPS origin published locally on `127.0.0.1:24283`.
 - The approver is intentionally minimal on first pass: it serves the block page,
   records access requests, and exposes approval endpoints. Telegram and AdGuard
