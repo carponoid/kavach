@@ -71,7 +71,8 @@ The control script creates these under `/ai/kavach/`:
 - The Kavach portal is served on `http://localhost:24284` and is intended to be published as `https://kavach.thepkb.in` through the shambala tunnel.
 - Layer-1 apps are proxied under the dashboard host as `/apps/{adguard,traccar,fmd,mdm,approver}` so one Cloudflare Access session on `kavach.thepkb.in` is reused across the whole portal.
 - The default DNS path is a managed Android DNS/VPN app pinned to `https://dns-kavach.thepkb.in/dns-query`.
-- Current tunnel routing uses AdGuard DoH on the HTTP listener (`127.0.0.1:24278/dns-query`, `insecure_enabled: true`) to avoid first-run TLS/cert issues; local `:24283` remains reserved for future native TLS origin.
+- Current tunnel routing uses AdGuard DoH on the TLS listener (`https://127.0.0.1:24283/dns-query`) with a local certificate and Cloudflare origin `noTLSVerify`.
+- Runtime DoH hardening is enabled (`http.doh.insecure_enabled: false`, `tls.enabled: true`) in `/ai/kavach/adguard/conf/AdGuardHome.yaml`.
 - The approver is intentionally minimal on first pass: it serves the block page,
   records access requests, and exposes approval endpoints. Telegram and AdGuard
   writeback are wired by env vars and can be enabled without changing the pod shape.
