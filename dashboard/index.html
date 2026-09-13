@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kavach Dashboard</title>
+  <style>
+    :root {
+      --bg-a: #f4f8ff;
+      --bg-b: #e7f1ff;
+      --ink: #162335;
+      --muted: #4b6078;
+      --card: #ffffff;
+      --line: #d6e3f5;
+      --accent: #0b69ff;
+      --accent-ink: #ffffff;
+      --ok: #0e9f6e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background: radial-gradient(1200px 700px at 0% -20%, #d6e8ff 0%, transparent 55%),
+                  radial-gradient(1200px 700px at 100% -20%, #dbf7ff 0%, transparent 55%),
+                  linear-gradient(180deg, var(--bg-a) 0%, var(--bg-b) 100%);
+      font-family: "Segoe UI", "Noto Sans", sans-serif;
+    }
+
+    .wrap {
+      width: min(1040px, 94vw);
+      margin: 2.5rem auto 3.5rem;
+    }
+
+    .hero {
+      background: linear-gradient(120deg, #0f2d57 0%, #124d9d 100%);
+      color: #f7fbff;
+      border-radius: 18px;
+      padding: 1.4rem 1.6rem;
+      box-shadow: 0 14px 28px rgba(11, 39, 80, 0.2);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(1.35rem, 1.1rem + 1.2vw, 2rem);
+      line-height: 1.15;
+    }
+
+    .hero p {
+      margin: 0.55rem 0 0;
+      color: #dbe9ff;
+      font-size: 0.98rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.95rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1rem;
+      box-shadow: 0 6px 18px rgba(10, 30, 70, 0.08);
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .dot {
+      width: 0.66rem;
+      height: 0.66rem;
+      border-radius: 999px;
+      background: var(--ok);
+      box-shadow: 0 0 0 4px rgba(14, 159, 110, 0.12);
+      flex: 0 0 auto;
+    }
+
+    .desc {
+      margin: 0.55rem 0 0.95rem;
+      color: var(--muted);
+      line-height: 1.4;
+      min-height: 2.5rem;
+      font-size: 0.93rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      padding: 0.45rem 0.7rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: var(--accent-ink);
+      border-color: #0056db;
+    }
+
+    .foot {
+      margin-top: 1rem;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    code {
+      background: #edf4ff;
+      border: 1px solid #d5e2f5;
+      border-radius: 7px;
+      padding: 0.08rem 0.35rem;
+      font-family: ui-monospace, Menlo, Consolas, monospace;
+      color: #12315c;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <h1>Kavach Dashboard</h1>
+      <p>
+        Central launcher for Layer-1 apps. Public access is expected through Cloudflare Access on
+        <strong>kavach.thepkb.in</strong> and subdomains.
+      </p>
+    </section>
+
+    <section class="grid" aria-label="Kavach app tiles">
+      <article class="card">
+        <h2 class="title"><span class="dot"></span>AdGuard Home</h2>
+        <p class="desc">DNS filtering and per-device policy control.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://adguard-kavach.thepkb.in" target="_blank" rel="noopener noreferrer">Public</a>
+          <a class="btn" href="http://localhost:24278" target="_blank" rel="noopener noreferrer">Local</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2 class="title"><span class="dot"></span>Traccar</h2>
+        <p class="desc">Location tracking and geofence events.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://traccar-kavach.thepkb.in" target="_blank" rel="noopener noreferrer">Public</a>
+          <a class="btn" href="http://localhost:24279" target="_blank" rel="noopener noreferrer">Local</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2 class="title"><span class="dot"></span>FMD Server</h2>
+        <p class="desc">Find/ring/lock primitives for managed devices.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://fmd-kavach.thepkb.in" target="_blank" rel="noopener noreferrer">Public</a>
+          <a class="btn" href="http://localhost:24280" target="_blank" rel="noopener noreferrer">Local</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2 class="title"><span class="dot"></span>Headwind MDM</h2>
+        <p class="desc">Policy/app management and enrollment workflows.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://mdm-kavach.thepkb.in" target="_blank" rel="noopener noreferrer">Public</a>
+          <a class="btn" href="http://localhost:24281" target="_blank" rel="noopener noreferrer">Local</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2 class="title"><span class="dot"></span>Approver</h2>
+        <p class="desc">Blocked-site request intake and parent decision actions.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://approver-kavach.thepkb.in" target="_blank" rel="noopener noreferrer">Public</a>
+          <a class="btn" href="http://localhost:24282" target="_blank" rel="noopener noreferrer">Local</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2 class="title"><span class="dot"></span>DNS Endpoint</h2>
+        <p class="desc">Managed-Android DoH endpoint for the rollout path.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://dns-kavach.thepkb.in/dns-query" target="_blank" rel="noopener noreferrer">DoH URL</a>
+          <a class="btn" href="https://localhost:24283/dns-query" target="_blank" rel="noopener noreferrer">Local</a>
+        </div>
+      </article>
+    </section>
+
+    <p class="foot">
+      If a public link fails, verify the tunnel ingress and Access app first. Local fallback ports remain available on shambala loopback.
+    </p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,4 @@
+DatabaseDir: "/var/lib/fmd-server/db"
+PortSecure: ""
+PortInsecure: "8083"
+MetricsAddrPort: "[::1]:9100"
